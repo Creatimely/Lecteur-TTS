@@ -1,0 +1,13 @@
+{
+  "name": "lecteur-tts",
+  "version": "1.0.0",
+  "description": "Lecteur de texte (Text-to-Speech) dans le navigateur, sans dépendance, avec surlignage mot à mot.",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "start": "npx --yes serve . -l 3000",
+    "test": "node --test"
+  },
+  "keywords": ["text-to-speech", "tts", "web-speech-api", "accessibilité"],
+  "engines": { "node": ">=18" }
+}

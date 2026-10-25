@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lecteur de texte — synthèse vocale</title>
+  <meta name="description" content="Lecteur de texte à voix haute dans le navigateur, avec surlignage mot à mot.">
+  <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+  <main>
+    <h1>Lecteur de texte</h1>
+    <p class="lede">Collez un texte, choisissez une voix, écoutez-le lu à voix haute. Tout reste dans votre navigateur.</p>
+
+    <label for="text">Votre texte</label>
+    <textarea id="text" rows="8" placeholder="Collez ou écrivez ici le texte à lire…"></textarea>
+    <div class="row meta">
+      <span id="count">0 caractère</span>
+      <span class="spacer"></span>
+      <label class="btn ghost" for="file">Importer un .txt</label>
+      <input id="file" type="file" accept=".txt,.md,text/plain" hidden>
+      <button id="clear" class="ghost" type="button">Vider</button>
+    </div>
+
+    <section class="controls" aria-label="Réglages">
+      <div class="field wide"><label for="voice">Voix</label><select id="voice"></select></div>
+      <div class="field"><label for="rate">Vitesse <output id="rate-out"></output></label>
+        <input id="rate" type="range" min="0.5" max="2" step="0.1" value="1"></div>
+      <div class="field"><label for="pitch">Hauteur <output id="pitch-out"></output></label>
+        <input id="pitch" type="range" min="0" max="2" step="0.1" value="1"></div>
+      <div class="field"><label for="volume">Volume <output id="volume-out"></output></label>
+        <input id="volume" type="range" min="0" max="1" step="0.1" value="1"></div>
+    </section>
+
+    <div class="row actions">
+      <button id="play" type="button">Lire</button>
+      <button id="pause" type="button" class="ghost" disabled>Pause</button>
+      <button id="stop" type="button" class="ghost" disabled>Arrêter</button>
+    </div>
+    <p id="status" role="status" aria-live="polite"></p>
+
+    <label>Suivi de lecture</label>
+    <div id="reader" class="reader" aria-live="off"></div>
+    <p class="hint">Raccourcis : <kbd>Ctrl</kbd>+<kbd>Entrée</kbd> lecture/pause, <kbd>Échap</kbd> arrêt.</p>
+  </main>
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
