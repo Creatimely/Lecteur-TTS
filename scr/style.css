@@ -1,0 +1,40 @@
+:root {
+  --paper: #f6f7f9; --card: #fff; --ink: #14213d; --muted: #5b6577; --line: #d6dae2;
+  --accent: #0f6b66; --accent-ink: #fff; --mark: #ffd166;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --paper: #0e1320; --card: #161d2f; --ink: #e8ecf5; --muted: #98a2b8; --line: #2a3450;
+    --accent: #4fd1c5; --accent-ink: #08201e; --mark: #b8860b; color-scheme: dark; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink);
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 46rem; margin: 0 auto; padding: 2rem 1rem 3rem; }
+h1 { font: 700 2rem/1.1 Georgia, "Iowan Old Style", serif; margin: 0 0 .5rem; letter-spacing: -.01em; }
+.lede, .hint, .meta, #status { color: var(--muted); }
+label { display: block; font-weight: 600; margin: 1.25rem 0 .35rem; }
+textarea, select, .reader { width: 100%; padding: .75rem; border: 1px solid var(--line);
+  border-radius: 8px; background: var(--card); color: inherit; font: inherit; }
+textarea { resize: vertical; }
+.reader { min-height: 8rem; max-height: 16rem; overflow: auto; white-space: pre-wrap;
+  font: 1.15rem/1.7 Georgia, "Iowan Old Style", serif; }
+mark { background: var(--mark); color: inherit; border-radius: 3px; padding: 0 .1em; }
+.row { display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; margin-top: .6rem; }
+.row label { margin: 0; }
+.spacer { flex: 1; }
+.controls { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 1rem; }
+.field.wide { grid-column: 1 / -1; }
+.field label { display: flex; justify-content: space-between; }
+input[type=range] { width: 100%; accent-color: var(--accent); }
+button, .btn { font: inherit; font-weight: 600; padding: .6rem 1.2rem; border-radius: 8px; cursor: pointer;
+  border: 1px solid var(--accent); background: var(--accent); color: var(--accent-ink); }
+button.ghost, .btn.ghost { background: transparent; color: var(--ink); border-color: var(--line);
+  font-weight: 500; padding: .35rem .8rem; }
+.actions button { min-width: 7rem; }
+.actions button.ghost { padding: .6rem 1.2rem; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+kbd { border: 1px solid var(--line); border-radius: 4px; padding: 0 .3em; font-size: .85em; }
+@media (max-width: 34rem) { .controls { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
